@@ -32,19 +32,4 @@ app.get("/api/random", (req, res) => {
 
 })
 
-app.post("/submit", (req, res) => {
-	
-	const jsonData = {
-		question: req.body.question,
-		options: [ req.body.optionA, req.body.optionB, req.body.optionC, req.body.optionD ],
-		answer: req.body.answer,
-	};
-
-	fs.readFile("api.json", "utf8", (err, data) => {
-		const arrData = JSON.parse(data);
-		arrData.push(jsonData);
-		fs.writeFileSync("api.json", JSON.stringify(arrData));
-	})
-});
-
 app.listen(port);

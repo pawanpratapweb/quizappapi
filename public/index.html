@@ -16,11 +16,17 @@
   <div class="mainContainer">
     <nav class="navBar">
       <h1>Quizzo</h1>
-      <p>Made by Annonymus</p>
+      <div>
+        <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-cardinal-points-location-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"/>
+        <p class="points">Made by Annonymus</p>
+      </div>
     </nav>
     <div class="textDiv">
       <a href="/quiz">Tap Here to start the GK Quiz Game !</a>
     </div>
   </div>
+  <script>
+document.querySelector(".points").innerText = localStorage.getItem('points');
+  </script>
 </body>
 </html>

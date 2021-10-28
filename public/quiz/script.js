@@ -1,3 +1,4 @@
+document.querySelector(".points").innerText = localStorage.getItem('points');
 fetch(window.location.origin + "/api/random?trd=kjdh8sa6dsKJHKJKHJKH3897B9823490209")
 .then(res => {
   return res.json()
@@ -14,7 +15,7 @@ fetch(window.location.origin + "/api/random?trd=kjdh8sa6dsKJHKJKHJKH3897B9823490
   for(var i=0; i<optionInd.length; i++){
     optionInd[i].addEventListener("click", checkAnswer);
   }
-  window.answer = res.answer;
+  window.answer = res.answer.trim();
 }).catch(err => {
   console.log(err)
 })
@@ -34,6 +35,7 @@ const checkAnswer = (event) => {
       correctAudio.play();
       element.style.background = "#00ff40";
       element.style.borderColor = "#00ff40";
+      localStorage.setItem("points", +localStorage.getItem("points") + 100)
     } else {
       element.style.background = "#ff4533";
       element.style.borderColor = "#ff4533";

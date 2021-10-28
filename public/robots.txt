@@ -1,0 +1,10 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+User-agent: *
+Allow: /quiz/
+
+Sitemap: https://quizappapis.herokuapp.com/sitemap.xml

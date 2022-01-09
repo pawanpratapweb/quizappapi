@@ -1,4 +1,3 @@
-const fs = require('fs');
 const express = require('express');
 const dotenv = require('dotenv').config();
 const axios = require('axios');
@@ -7,11 +6,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(__dirname + "/public"));
 
 app.get("/api/random", (req, res) => {
 	if (req.query.trd == process.env.RANDURL) {
-		axios.get('https://quizzoweb-default-rtdb.firebaseio.com/gs.json')
+		axios.get('https://quizzoweb-default-rtdb.firebaseio.com/questions.json')
 			.then(response => {
 				function getRandomInt(min, max) {
 					min = Math.ceil(min);

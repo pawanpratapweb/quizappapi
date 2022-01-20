@@ -7,4 +7,4 @@ Allow: /
 User-agent: *
 Allow: /quiz/
 
-Sitemap: https://quizappapis.herokuapp.com/sitemap.xml
+Sitemap: https://quizzoweb.web.app/sitemap.xml

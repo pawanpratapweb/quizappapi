@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.get("/api/random", (req, res) => {
 	if (req.query.trd == process.env.RANDURL) {
-		axios.get('https://quizzoweb-default-rtdb.firebaseio.com/questions.json')
+		axios.get('https://quizzoweb-default-rtdb.firebaseio.com/gs.json')
 			.then(response => {
 				function getRandomInt(min, max) {
 					min = Math.ceil(min);

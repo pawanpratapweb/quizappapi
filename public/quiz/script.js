@@ -1,5 +1,5 @@
 document.querySelector(".points").innerText = localStorage.getItem('points');
-fetch(window.location.origin + "/api/random?trd=kjdh8sa6dsKJHKJKHJKH3897B9823490209")
+fetch("https://quizappapis.herokuapp.com/api/random?trd=kjdh8sa6dsKJHKJKHJKH3897B9823490209")
   .then(res => {
     return res.json()
   }).then(res => {
@@ -17,7 +17,26 @@ fetch(window.location.origin + "/api/random?trd=kjdh8sa6dsKJHKJKHJKH3897B9823490
     }
     window.answer = res.answer.trim();
   }).catch(err => {
-    console.log(err)
+    fetch("https://quizappapis.herokuapp.com/api/random?trd=kjdh8sa6dsKJHKJKHJKH3897B9823490209")
+      .then(res => {
+        return res.json()
+      }).then(res => {
+        const question = document.querySelector(".question");
+        const options = document.getElementsByClassName("options")[ 0 ];
+        var answer = res.answer;
+        question.innerText = res.question;
+        res.options.map((elem, index) => {
+          options.insertAdjacentHTML("beforeend", `<button class="optionInd">${elem}</button>`);
+        })
+        const optionInd = document.getElementsByClassName("optionInd");
+
+        for (var i = 0; i < optionInd.length; i++) {
+          optionInd[ i ].addEventListener("click", checkAnswer);
+        }
+        window.answer = res.answer.trim();
+      }).catch(err => {
+        console.log(err)
+      })
   })
 
 
